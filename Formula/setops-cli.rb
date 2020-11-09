@@ -10,8 +10,6 @@ class SetopsCli < Formula
 
   bottle :unneeded
 
-  # TODO: Update name of the formula to decrease the chance of clonflicts
-
   GITHUB_HOMEBREW_TOKEN = "cefca4284b498ce2b82d43703c87fa81d1bcc3fe".freeze
   RELEASE_FILE_NAME = "setops-cli_v0.0.5_darwin_amd64".freeze
 
@@ -41,8 +39,6 @@ class SetopsCli < Formula
 
     bash_completions_temp.close
     bash_completions_temp.unlink
-
-    # TODO: Set the correct server address in setops.yml
   end
 
   test do
