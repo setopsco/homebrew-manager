@@ -1,4 +1,4 @@
-class Manager < Formula
+class SetopsCli < Formula
   desc "Allows developers to easily setup their infrastructure and deploy apps"
   homepage "https://zweitag.de"
   url "https://cefca4284b498ce2b82d43703c87fa81d1bcc3fe@api.github.com/repos/setopsco/manager/releases/assets/27964702",
