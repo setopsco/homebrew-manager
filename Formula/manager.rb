@@ -12,19 +12,40 @@ class Manager < Formula
 
   # TODO: Update name of the formula to decrease the chance of clonflicts
 
-  GITHUB_HOMEBREW_TOKEN = "cefca4284b498ce2b82d43703c87fa81d1bcc3fe"
+  GITHUB_HOMEBREW_TOKEN = 'cefca4284b498ce2b82d43703c87fa81d1bcc3fe'
+  RELEASE_FILE_NAME = 'setops-cli_v0.0.5_darwin_amd64'
 
   def install
-    bin.install 'setops-cli_v0.0.5_darwin_amd64' => 'setops'
+    bin.install RELEASE_FILE_NAME => 'setops'
 
-    # TODO: install the completion scripts
-    # bash_completion.install shell_output("#{bin}/setops completions bash")
-    # zsh_completion.install shell_output("#{bin}/setops completions zsh") => '_setops'
+    # Sets execution permission explicitly: required here to generate completions
+    # would be done by homebrew after the installation
+    system "chmod 555 #{prefix}/bin/setops"
+
+    # install the completion scripts
+    system "#{prefix}/bin/setops"
+    zsh_completions_temp = Tempfile.new('setops-manager-zsh-completions')
+    zsh_completions_temp.write(Utils.popen_read("#{prefix}/bin/setops" ,"completion","zsh"))
+    zsh_completions_temp.rewind
+
+    zsh_completion.install zsh_completions_temp.path => '_setops'
+
+    zsh_completions_temp.close
+    zsh_completions_temp.unlink
+
+    bash_completions_temp = Tempfile.new('setops-manager-zsh-completions')
+    bash_completions_temp.write(Utils.popen_read("#{prefix}/bin/setops" ,"completion","bash"))
+    bash_completions_temp.rewind
+
+    bash_completion.install bash_completions_temp.path => "setops"
+
+    bash_completions_temp.close
+    bash_completions_temp.unlink
 
     # TODO: Set the correct server address in setops.yml
   end
 
   test do
-    system "false"
+    system "setops"
   end
 end
