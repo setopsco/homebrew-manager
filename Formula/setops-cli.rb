@@ -6,7 +6,7 @@ class SetopsCli < Formula
   version "0.0.5"
   sha256 "ac2435bb4c8ff1effe93a8348b55403596542216dc7f73c6808ce8974f190f84"
   # TODO: Update license (see https://docs.brew.sh/Formula-Cookbook)
-  license "MIT"
+  license ""
 
   bottle :unneeded
 
