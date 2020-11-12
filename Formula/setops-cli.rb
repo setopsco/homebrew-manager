@@ -1,7 +1,7 @@
 class SetopsCli < Formula
   desc "Allows developers to easily setup their infrastructure and deploy apps"
   homepage "https://setops.co"
-  url "https://cefca4284b498ce2b82d43703c87fa81d1bcc3fe@api.github.com/repos/setopsco/manager/releases/assets/27964702",
+  url "https://api.github.com/repos/setopsco/manager/releases/assets/27964702",
       header: "Accept: application/octet-stream"
   version "0.0.5"
   sha256 "ac2435bb4c8ff1effe93a8348b55403596542216dc7f73c6808ce8974f190f84"
@@ -10,7 +10,6 @@ class SetopsCli < Formula
 
   bottle :unneeded
 
-  GITHUB_HOMEBREW_TOKEN = "cefca4284b498ce2b82d43703c87fa81d1bcc3fe".freeze
   RELEASE_FILE_NAME = "setops-cli_v0.0.5_darwin_amd64".freeze
 
   def install
