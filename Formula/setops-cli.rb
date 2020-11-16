@@ -1,7 +1,7 @@
 class SetopsCli < Formula
   desc "Allows developers to easily setup their infrastructure and deploy apps"
   homepage "https://setops.co"
-  url "https://api.github.com/repos/setopsco/manager/releases/assets/27964702",
+  url "https://api.github.com/repos/setopsco/homebrew-manager/releases/assets/28362817",
       header: "Accept: application/octet-stream"
   version "0.0.5"
   sha256 "ac2435bb4c8ff1effe93a8348b55403596542216dc7f73c6808ce8974f190f84"
