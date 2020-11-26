@@ -1,5 +1,5 @@
 class SetopsCli < Formula
-  desc "Allows developers to easily setup their infrastructure and deploy apps"
+  desc "The only tool you need to run your cloud applications"
   homepage "https://setops.co"
   url "https://api.github.com/repos/setopsco/homebrew-manager/releases/assets/28362817",
       header: "Accept: application/octet-stream"
