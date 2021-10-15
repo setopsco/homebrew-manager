@@ -1,16 +1,16 @@
 class SetopsCli < Formula
   desc "The only tool you need to run your cloud applications"
   homepage "https://setops.co"
-  url "https://api.github.com/repos/setopsco/releases/releases/assets/45795057",
+  url "https://api.github.com/repos/setopsco/releases/releases/assets/47059569",
       header: "Accept: application/octet-stream"
-  version "0.7.3"
-  sha256 "3bd843c81d01da577c59fa9e95e899792e99f8f4659335c5342e23e033d24974"
+  version "0.8.0"
+  sha256 "ee58712b42b91daaaa985b36f68d2a32970d49110517bec1382fada23fcca778"
   # TODO: Update license (see https://docs.brew.sh/Formula-Cookbook)
   license :cannot_represent
 
   bottle :unneeded
 
-  RELEASE_FILE_NAME = "setops-cli_v0.7.3_darwin_amd64".freeze
+  RELEASE_FILE_NAME = "setops-cli_v0.8.0_darwin_amd64".freeze
 
   def install
     bin.install RELEASE_FILE_NAME => "setops"
