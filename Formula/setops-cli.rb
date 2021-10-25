@@ -8,8 +8,6 @@ class SetopsCli < Formula
   # TODO: Update license (see https://docs.brew.sh/Formula-Cookbook)
   license :cannot_represent
 
-  bottle :unneeded
-
   RELEASE_FILE_NAME = "setops-cli_v0.8.0_darwin_amd64".freeze
 
   def install
