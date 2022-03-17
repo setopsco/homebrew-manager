@@ -1,10 +1,10 @@
 class SetopsCli < Formula
   desc "The only tool you need to run your cloud applications"
   homepage "https://setops.co"
-  url "https://api.github.com/repos/setopsco/releases/releases/assets/59545335",
+  url "https://api.github.com/repos/setopsco/releases/releases/assets/59795860",
       header: "Accept: application/octet-stream"
   version "0.10.3"
-  sha256 "749c30c5f0d42b9301646913aca74841de5d9e096e844b3c9043476aedafda4a"
+  sha256 "9a781b333a931a0c95015635285b2ed97132d99be58bdbc727ca4daea6860ed1"
   # TODO: Update license (see https://docs.brew.sh/Formula-Cookbook)
   license :cannot_represent
 
