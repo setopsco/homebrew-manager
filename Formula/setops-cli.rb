@@ -18,7 +18,6 @@ class SetopsCli < Formula
     system "chmod 555 #{bin}/setops"
 
     # install the completion scripts
-    system "#{bin}/setops"
     zsh_completions_temp = Tempfile.new("setops-manager-zsh-completions")
     zsh_completions_temp.write(Utils.safe_popen_read("#{bin}/setops", "completion", "zsh"))
     zsh_completions_temp.rewind
