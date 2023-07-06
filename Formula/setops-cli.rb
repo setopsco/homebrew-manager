@@ -18,23 +18,23 @@ class SetopsCli < Formula
     system "chmod 555 #{bin}/setops"
 
     # install the completion scripts
-    # zsh_completions_temp = Tempfile.new("setops-manager-zsh-completions")
-    # zsh_completions_temp.write(Utils.safe_popen_read("#{bin}/setops", "completion", "zsh"))
-    # zsh_completions_temp.rewind
-    # 
-    # zsh_completion.install zsh_completions_temp.path => "_setops"
-    # 
-    # zsh_completions_temp.close
-    # zsh_completions_temp.unlink
-    # 
-    # bash_completions_temp = Tempfile.new("setops-manager-zsh-completions")
-    # bash_completions_temp.write(Utils.safe_popen_read("#{bin}/setops", "completion", "bash"))
-    # bash_completions_temp.rewind
-    # 
-    # bash_completion.install bash_completions_temp.path => "setops"
-    # 
-    # bash_completions_temp.close
-    # bash_completions_temp.unlink
+    zsh_completions_temp = Tempfile.new("setops-manager-zsh-completions")
+    zsh_completions_temp.write(Utils.safe_popen_read("#{bin}/setops", "completion", "zsh"))
+    zsh_completions_temp.rewind
+
+    zsh_completion.install zsh_completions_temp.path => "_setops"
+
+    zsh_completions_temp.close
+    zsh_completions_temp.unlink
+
+    bash_completions_temp = Tempfile.new("setops-manager-zsh-completions")
+    bash_completions_temp.write(Utils.safe_popen_read("#{bin}/setops", "completion", "bash"))
+    bash_completions_temp.rewind
+
+    bash_completion.install bash_completions_temp.path => "setops"
+
+    bash_completions_temp.close
+    bash_completions_temp.unlink
   end
 
   test do
