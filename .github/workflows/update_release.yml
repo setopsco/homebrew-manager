@@ -61,8 +61,10 @@ jobs:
       - name: Commit formula update
         run: |
           git add --force Formula/setops-cli.rb
-          git commit -m ":arrow_up: Updates formula to ${{ env.VERSION }}"
-
-      - name: Push formula update
-        run: git push
+          if git diff --cached --quiet; then
+            echo "Formula already up to date, nothing to commit"
+          else
+            git commit -m ":arrow_up: Updates formula to ${{ env.VERSION }}"
+            git push
+          fi
       
