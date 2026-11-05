@@ -17,24 +17,13 @@ class SetopsCli < Formula
     # would be done by homebrew after the installation
     system "chmod 555 #{bin}/setops"
 
-    # install the completion scripts
-    zsh_completions_temp = Tempfile.new("setops-manager-zsh-completions")
-    zsh_completions_temp.write(Utils.safe_popen_read("#{bin}/setops", "completion", "zsh"))
-    zsh_completions_temp.rewind
+    # Completions are optional: the CLI may exit non-zero (e.g. failing server version check),
+    # which must not abort the installation.
+    zsh_script = Utils.popen_read("#{bin}/setops", "completion", "zsh")
+    (zsh_completion/"_setops").write zsh_script if $?.success? && !zsh_script.empty?
 
-    zsh_completion.install zsh_completions_temp.path => "_setops"
-
-    zsh_completions_temp.close
-    zsh_completions_temp.unlink
-
-    bash_completions_temp = Tempfile.new("setops-manager-zsh-completions")
-    bash_completions_temp.write(Utils.safe_popen_read("#{bin}/setops", "completion", "bash"))
-    bash_completions_temp.rewind
-
-    bash_completion.install bash_completions_temp.path => "setops"
-
-    bash_completions_temp.close
-    bash_completions_temp.unlink
+    bash_script = Utils.popen_read("#{bin}/setops", "completion", "bash")
+    (bash_completion/"setops").write bash_script if $?.success? && !bash_script.empty?
   end
 
   test do
